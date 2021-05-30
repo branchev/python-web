@@ -1,7 +1,8 @@
 from django.urls import path
 
-from django101.cities.views import list_cities
+from django101.cities.views import list_cities, create_person
 
 urlpatterns = [
-    path('cities/', list_cities),
+    path('', list_cities),
+    path('create/', create_person),
 ]

@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django101.cities.models import Person
 
@@ -13,4 +12,22 @@ def index(req):
 
 
 def list_cities(req):
-    return HttpResponse("Cities list")
+    context = {
+        "cities": [
+            "Sofia",
+            "Plovdiv",
+            "Varna",
+            "Burgas"
+        ]
+    }
+    return render(req, 'cities.html', context)
+
+
+def create_person(req):
+    Person(
+        name="Gitka",
+        age=20,
+        home_town="Bosilegrad"
+    ).save()
+
+    return redirect('/')

@@ -6,6 +6,6 @@ from django101.cities.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('', include('django101.cities.urls')),
+    path('cities/', include('django101.cities.urls')),
     path('', include('django101.people.urls')),
 ]
